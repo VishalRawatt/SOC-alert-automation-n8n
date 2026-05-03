@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SOC_Automation/Splunk Project.md",
+                "file": "Splunk Project.md",
                 "mode": "source",
                 "source": false
               },
@@ -184,10 +184,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fd9039a5455bf8a7",
+  "active": "a754bc50f6665131",
   "lastOpenFiles": [
     "SOC Automation.md",
-    "SOC_Automation/Splunk Project.md",
+    "Splunk Project.md",
     "SOC_Automation/SOC Automation.md",
     "NPT/Assets/Pasted image 20260406145705.png",
     "NPT/Assets/99.png",
