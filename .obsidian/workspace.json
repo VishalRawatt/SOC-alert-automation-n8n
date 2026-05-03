@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Splunk Project.md",
+                "file": "Readme.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Splunk Project"
+              "title": "Readme"
             }
           }
         ]
@@ -184,10 +184,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a754bc50f6665131",
+  "active": "fd9039a5455bf8a7",
   "lastOpenFiles": [
-    "SOC Automation.md",
     "Splunk Project.md",
+    "Readme.md",
+    "SOC Automation.md",
     "SOC_Automation/SOC Automation.md",
     "NPT/Assets/Pasted image 20260406145705.png",
     "NPT/Assets/99.png",
@@ -227,7 +228,6 @@
     "THM/Mod 13 2. Relevant.md",
     "THM/Mod 15 2. SQLMap.md",
     "THM/Mod 15 1. SQL Injection.md",
-    "THM/Mod 4 1. Network Services.md",
     "THM/Assets",
     "THM",
     "THM",
