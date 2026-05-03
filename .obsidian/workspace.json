@@ -1,0 +1,237 @@
+{
+  "main": {
+    "id": "bfbebeac0f88e0cf",
+    "type": "split",
+    "children": [
+      {
+        "id": "95f03c9672cd3da8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd9039a5455bf8a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SOC_Automation/Splunk Project.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Splunk Project"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2c72ae23d11b6a85",
+    "type": "split",
+    "children": [
+      {
+        "id": "d62a6102dff71235",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a754bc50f6665131",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f80cf3c7da69c9b3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "544c574d0045be56",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "cbbc192bc8286f41",
+    "type": "split",
+    "children": [
+      {
+        "id": "81a1892fda4a599c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "533b0ca4ada286f1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "43a5d7d6e36a1d7d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "b48794e54d001b3f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6cf62c700fe538ab",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "8bfb194ea0c0e9c6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "fd9039a5455bf8a7",
+  "lastOpenFiles": [
+    "SOC_Automation/SOC Automation.md",
+    "SOC Automation.md",
+    "NPT/Assets/Pasted image 20260406145705.png",
+    "NPT/Assets/99.png",
+    "NPT/Assets/98.png",
+    "NPT/Assets/97.png",
+    "NPT/Assets/96.png",
+    "NPT/Assets/95.png",
+    "NPT/Assets/93.png",
+    "NPT/Assets/94.png",
+    "NPT/Assets/92.png",
+    "NPT/Assets/91.png",
+    "NPT/Assets",
+    "NPT/9 Year of the Rabbit.md",
+    "NPT/8 BookStore.md",
+    "NPT/7 Overpass.md",
+    "NPT/6 Chocolate Factory.md",
+    "NPT/5 Kenobi.md",
+    "NPT/4 Mr. Robot.md",
+    "NPT/3 Basic Pentesting.md",
+    "NPT/2 Relevant.md",
+    "NPT/12 Gaming Server.md",
+    "NPT/11 Year of the Dog.md",
+    "NPT/10 Mustacchio.md",
+    "NPT/1 Ignite.md",
+    "NPT/0 Rooms.md",
+    "NPT",
+    "CEH Extras/Wifi Attack.md",
+    "CEH Extras/Payload Generator.md",
+    "CEH Extras/Camphish.md",
+    "CEH Extras/IRSSI.md",
+    "CEH Extras/Bluetooth Attack.md",
+    "CEH Extras/Bettercap.md",
+    "CEH Extras",
+    "SOC_Automation/Splunk Project.md",
+    "SOC_Automation",
+    "New folder",
+    "Untitled.canvas",
+    "THM/Mod 13 2. Relevant.md",
+    "THM/Mod 15 2. SQLMap.md",
+    "THM/Mod 15 1. SQL Injection.md",
+    "THM/Mod 4 1. Network Services.md",
+    "THM/Assets",
+    "THM",
+    "THM",
+    "Assets",
+    "THM/Assets/Attachments"
+  ]
+}
