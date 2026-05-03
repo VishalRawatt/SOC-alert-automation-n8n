@@ -100,11 +100,11 @@ Action: Block IP and reset user credentials
 
 ### 🔹 n8n Workflow
 
-![n8n Workflow](https://chatgpt.com/c/docs/screenshots/workflow.png)
+![enum result](Screenshots/1.png)
 
 ### 🔹 Splunk Alert
 
-![Splunk Alert](https://chatgpt.com/c/docs/screenshots/splunk.png)
+![enum result](Screenshots/2.png)
 
 ### 🔹 Slack Notification
 
