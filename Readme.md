@@ -108,7 +108,7 @@ Action: Block IP and reset user credentials
 
 ### 🔹 Slack Notification
 
-![Slack Output](https://chatgpt.com/c/docs/screenshots/slack.png)
+![[3.png]]
 
 ---
 
