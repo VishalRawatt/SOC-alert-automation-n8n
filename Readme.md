@@ -108,7 +108,7 @@ Action: Block IP and reset user credentials
 
 ### 🔹 Slack Notification
 
-![[3.png]]
+![enum result] [Screenshots/3.png]]
 
 ---
 
