@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readme.md",
+                "file": "Splunk Project.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Readme"
+              "title": "Splunk Project"
             }
           }
         ]
@@ -186,11 +186,13 @@
   },
   "active": "fd9039a5455bf8a7",
   "lastOpenFiles": [
-    "Screenshots/2.png",
-    "Screenshots/1.png",
-    "Screenshots/3.png",
     "Readme.md",
     "Splunk Project.md",
+    "Screenshots/1.png",
+    "Screenshots/2.png",
+    "Screenshots/3.png",
+    "Screenshots/Pasted image 20260503141855.png",
+    "Screenshots/Pasted image 20260503141836.png",
     "NPT/Assets/Pasted image 20260503140324.png",
     "NPT/Assets",
     "NPT",
@@ -201,8 +203,6 @@
     "NPT/Assets/99.png",
     "NPT/Assets/98.png",
     "NPT/Assets/97.png",
-    "NPT/Assets/96.png",
-    "NPT/Assets/95.png",
     "NPT/9 Year of the Rabbit.md",
     "NPT/8 BookStore.md",
     "NPT/7 Overpass.md",
