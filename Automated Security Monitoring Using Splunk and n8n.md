@@ -1,5 +1,5 @@
 
-## 1. Project Goal
+##  Project Goal
 
 The goal of this project is to build an automated security monitoring and incident-analysis system using **Splunk as the SIEM** and **n8n as the automation platform**.
 
@@ -17,7 +17,7 @@ Splunk SIEM
     │
     │ Event Analysis
     ▼
-ChatGPT / LLM (Ollama used here)
+ChatGPT / LLM (Ollama Phi used here)
     │
     │ Security Summary
     ▼
@@ -27,8 +27,7 @@ ChatGPT / LLM (Ollama used here)
 Windows logs will be collected and sent to Splunk for centralized monitoring. Relevant events will then be passed to n8n, where ChatGPT will process and analyze the events. The final analysis will be automatically sent to Slack.
 
 ---
-
-## 2. Virtual Machine Configuration
+##  Virtual Machine Configuration
 
 The project environment consists of the following virtual machines:
 
@@ -47,8 +46,7 @@ The Splunk server is configured with the IP address:
 ```
 
 ---
-
-## 3. Initial System Configuration
+## Initial System Configuration
 
 The initial setup was performed on all virtual machines before starting the main deployment.
 
@@ -74,8 +72,7 @@ sudo apt upgrade -y
 A snapshot of the Windows 10 Pro machine was created before starting the security-testing phase. This provides a recovery point if any configuration or testing causes unwanted changes.
 
 ---
-
-# 4. Splunk Installation
+# Splunk Installation
 
 Splunk was selected as the central SIEM for collecting, indexing, and analyzing security logs.
 
@@ -104,8 +101,7 @@ cd /opt/splunk/bin
 ```
 
 ---
-
-## 5. Configure Splunk to Start Automatically
+## Configure Splunk to Start Automatically
 
 To make sure Splunk starts automatically whenever the Ubuntu server boots, boot-start was enabled:
 
@@ -122,8 +118,7 @@ Splunk was then started manually for the initial configuration:
 During the first startup, the license agreement was accepted and the initial administrator credentials were configured.
 
 ---
-
-## 6. Accessing Splunk
+## Accessing Splunk
 
 Once Splunk was running, the Web interface could be accessed from the host machine using port **8000**:
 
@@ -156,9 +151,7 @@ This is the default receiving port used by the Splunk Universal Forwarder.
 
 Click **Save**.
 
-![[5.png]]
-
----
+![](Screenshots/5.png)
 
 ### Create a New Index
 
@@ -175,7 +168,6 @@ Press **Enter** and save the new index.
 All Windows events collected for this project will be stored in this index.
 
 ---
-
 ### Install Splunk Add-on for Windows
 
 Go to: **Apps → Find More Apps**
@@ -184,12 +176,11 @@ Search for: Windows Event
 
 Install the **Splunk Add-on for Microsoft Windows**.
 
-![[6.png]]
+![](Screenshots/6.png)
 
 During the installation, Splunk may ask for the **Splunk account credentials**.
 
 ---
-
 # Configuring Windows
 
 Now we will configure the Windows machine to send its event logs to Splunk.
@@ -219,7 +210,6 @@ For the receiving port, enter:
 This allows the Windows Universal Forwarder to communicate with the Splunk server and forward the collected logs.
 
 ---
-
 # Configure `inputs.conf`
 
 After installing the Universal Forwarder, navigate to:
@@ -245,7 +235,8 @@ index = splunkproject
 ```
 
 This ensures that the Windows logs are stored inside the `splunkproject` index in Splunk.
-![[7.png]]
+
+![](Screenshots/7.png)
 
 ## Log Flow
 
@@ -284,20 +275,15 @@ SplunkForwarder
 
 Double-click the service and go to the **Log On** tab.
 
-Select:
-
-**Local System account**
+Select: **Local System account**
 
 Click **Apply** and then **OK**.
 
-Now right-click on the `SplunkForwarder` service and select:
-
-**Restart**
+Now right-click on the `SplunkForwarder` service and select: **Restart**
 
 This will restart the Universal Forwarder with the updated configuration.
 
 ---
-
 ## Verify Logs in Splunk
 
 Now go back to the Splunk Web interface:
@@ -306,9 +292,7 @@ Now go back to the Splunk Web interface:
 http://<splunk-ip>:8000
 ```
 
-Go to:
-
-**Apps → Search & Reporting**
+Go to: **Apps → Search & Reporting**
 
 Run the following search:
 
@@ -316,7 +300,7 @@ Run the following search:
 index=splunkproject
 ```
 
-![[8.png]]
+![](Screenshots/8.png)
 
 If the Windows events are displayed, the log forwarding setup is working correctly.
 
@@ -338,7 +322,6 @@ splunkproject
 ```
 
 ---
-
 # n8n Setup
 
 Now that Windows logs are successfully reaching Splunk, we can continue with the automation part of the project.
@@ -387,7 +370,6 @@ sudo apt update
 ```
 
 ---
-
 # Create n8n Directory
 
 Create a dedicated directory for the n8n Docker configuration:
@@ -436,7 +418,6 @@ services:
 Save the file and exit the editor.
 
 ---
-
 ## Pull the n8n Image
 
 Download the required n8n Docker image:
@@ -454,7 +435,6 @@ sudo chown -R 1000:1000 n8n_data/
 ```
 
 ---
-
 ## Start n8n
 
 Start the n8n container in detached mode:
@@ -466,7 +446,6 @@ sudo docker compose up -d
 The `-d` option runs the container in the background.
 
 ---
-
 # Access n8n
 
 From the Windows machine, open a browser and enter:
@@ -489,10 +468,7 @@ http://192.168.182.129:5678
 
 Complete the initial n8n account setup.
 
-> Use the credentials created during the initial setup. Do not store real passwords in the project documentation.
-
 ---
-
 # Starting the Environment
 
 For future sessions, make sure the following virtual machines are powered on:
@@ -515,7 +491,7 @@ For this project:
 http://192.168.182.128:8000
 ```
 
-![[9.png]]
+![](Screenshots/9.png)
 
 Once Splunk and n8n are running, we can continue with the **Splunk → n8n integration**.
 
@@ -537,7 +513,7 @@ EventCode
 
 We can use this field to search for specific Windows security events.
 
-![[10.png]]
+![](Screenshots/10.png)
 
 For example:
 
@@ -545,12 +521,11 @@ For example:
 index=splunkproject EventCode=4799
 ```
 
-![[11.png]]
+![](Screenshots/11.png)
 
 This search returned three events.
 
 ---
-
 # Detect Failed Authentication Attempts
 
 Next, we will monitor failed Windows authentication attempts.
@@ -582,33 +557,23 @@ We will generate controlled failed authentication attempts from the Kali Linux m
 This means that someone attempted to authenticate to the Windows system, but the authentication failed.
 
 ---
-
 # Create a Splunk Alert
 
 Once the search is working correctly, save it as an alert.
 
-Go to:
-
-**Save As → Alert**
+Go to: **Save As → Alert**
 
 Configure the alert to run automatically.
 
 ### Schedule
 
-Change:
+Change: **Run Every → Cron**
 
-**Run Every → Cron**
-
-Then set the Cron expression so that the search runs every minute:
-
-```
-*
-```
+Then set the Cron expression so that the search runs every minute: *
 
 This allows Splunk to continuously check for new failed authentication events.
 
 ---
-
 # Configure Alert Triggers
 
 Under **When triggered**, configure the following actions:
@@ -633,7 +598,7 @@ This allows the generated alert to be recorded in Splunk's triggered-alert syste
 
 Save the alert configuration.
 
-![[12.png]]
+![](Screenshots/12.png)
 
 # Connect Splunk to n8n
 
@@ -651,7 +616,7 @@ Webhook
 
 Select the **Webhook** node.
 
-![[13.png]]
+![](Screenshots/13.png)
 
 ## Configure Webhook
 
@@ -685,8 +650,7 @@ Splunk Alert
    n8n
 ```
 
-![[14.png]]
-
+![](Screenshots/14.png)
 # Integrate OpenAI
 
 Once n8n successfully receives the Splunk event, we can send the event to an LLM for analysis.
@@ -700,7 +664,6 @@ ChatGPT
 Select: **OpenAI → Message a Model**
 
 ---
-
 ## Configure OpenAI Credentials
 
 The OpenAI node requires an API credential.
@@ -713,7 +676,7 @@ Enter the OpenAI API key and save the credential.
 
 We will use different message roles to structure the request sent to the model: **System**
 
-![[16.png]]
+![](Screenshots/16.png)
 
 Defines how the model should behave and what role it should perform.
 
@@ -744,13 +707,11 @@ User: {{$json.Account_Name}}
 
 IP: {{$json.src_ip}}
 ```
-
 # Slack Integration
 
 After successfully connecting Splunk, n8n, and the LLM, the final step is to send the generated security analysis to Slack.
 
 Slack will be used as the notification platform for our security alerts.
-
 ## Create Slack Channel
 
 First, create a Slack account/workspace.
@@ -785,7 +746,6 @@ The OAuth setup instructions are available here:
 [https://docs.n8n.io/integrations/builtin/credentials/slack/#using-oauth2](https://docs.n8n.io/integrations/builtin/credentials/slack/#using-oauth2)
 
 ---
-
 ## Configure Slack OAuth
 
 Follow the OAuth setup instructions provided by n8n.
@@ -804,7 +764,7 @@ channels:read
 
 Add the other required scopes according to the n8n Slack integration requirements.
 
-![[17.png]]
+![](Screenshots/17.png)
 
 After configuring the required permissions, click:
 
@@ -812,11 +772,11 @@ After configuring the required permissions, click:
 
 Copy the generated **OAuth Token**.
 
-![[18.png]]
+![](Screenshots/18.png)
 
 Return to n8n and paste the token into the Slack credential configuration.
 
-![[19.png]]
+![](Screenshots/19.png)
 
 Save the credential.
 
@@ -827,7 +787,6 @@ splunk
 ```
 
 ---
-
 # Configure Slack Message
 
 In the Slack node, configure:
@@ -836,7 +795,7 @@ In the Slack node, configure:
 
 At this point, a dry run may result in an error because the Slack application has not yet been added to the channel.
 
-![[20.png]]
+![](Screenshots/20.png)
 
 # Add the Slack App to the Channel
 
@@ -854,14 +813,13 @@ channel and select:
 
 Add the Slack application created for the project.
 
-![[21.png]]
+![](Screenshots/21.png)
 
 After adding it, the application should appear in the channel integrations.
 
 This allows n8n to send messages to the `#alerts` channel.
 
 ---
-
 # Send the LLM Output to Slack
 
 Now we will pass the output generated by the LLM directly into the Slack message.
@@ -877,7 +835,6 @@ If the OpenAI node is not being used and the output is available as `message.con
 Execute the workflow and verify that the generated analysis appears in Slack.
 
 ---
-
 # Using Ollama Instead of OpenAI
 
 During testing, an OpenAI API key was not available, so we used **Ollama** to run the LLM locally.
@@ -909,7 +866,6 @@ OLLAMA_HOST=0.0.0.0 ollama serve
 This exposes the Ollama service so that other systems in the lab environment can communicate with it.
 
 ---
-
 # SOC Analysis Prompt
 
 For the Phi model, the prompt was updated to make the output concise and consistent.
@@ -939,12 +895,11 @@ Computer: {{$json.body.result.ComputerName}}
 Count: {{$json.body.result.count}}
 ```
 
-![[22.png]]
+![](Screenshots/22.png)
 
 This provides the LLM with the important information from the Splunk alert while keeping the output short and consistent.
 
 ---
-
 # Slack Alert Formatting
 
 Inside the Slack node, the LLM output is formatted as a security alert:
@@ -955,10 +910,10 @@ Inside the Slack node, the LLM output is formatted as a security alert:
 {{$json.content.replace(/\\n/g, '\n')}}
 ```
 
-![[23.png]]
+![](Screenshots/23.png)
 
 The `replace()` function converts escaped newline characters into actual line breaks so that the message is easier to read in Slack.
 
 After executing the workflow, the generated security alert was successfully received in Slack.
 
-![[24.png]]
+![](Screenshots/24.png)
