@@ -183,13 +183,16 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "git-vault-sync:Git Vault Sync: Sync vault": false,
+      "git-vault-sync:Git Vault Sync: Review changes & sync": false
     }
   },
   "active": "fd9039a5455bf8a7",
   "lastOpenFiles": [
-    "Readme.md",
+    "MDFile/1.png",
     "Automated Security Monitoring Using Splunk and n8n.md",
+    "Readme.md",
     "Screenshots/3.png",
     "MDFile",
     "Screenshots/2.png",
@@ -205,7 +208,6 @@
     "NPT/Assets/Pasted image 20260406145705.png",
     "NPT/Assets/99.png",
     "NPT/Assets/98.png",
-    "NPT/Assets/97.png",
     "NPT/9 Year of the Rabbit.md",
     "NPT/8 BookStore.md",
     "NPT/7 Overpass.md",

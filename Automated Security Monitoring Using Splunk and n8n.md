@@ -4,7 +4,7 @@
 The goal of this project is to build an automated security monitoring and incident-analysis system using **Splunk as the SIEM** and **n8n as the automation platform**.
 
 The basic workflow is:
-
+```
 Windows 10
     │
     │ Security Logs
@@ -13,7 +13,7 @@ Splunk SIEM
     │
     │ Relevant Events
     ▼
-n8n
+   n8n
     │
     │ Event Analysis
     ▼
@@ -21,7 +21,8 @@ ChatGPT / LLM (Ollama used here)
     │
     │ Security Summary
     ▼
-	Slack
+  Slack
+```
 
 Windows logs will be collected and sent to Splunk for centralized monitoring. Relevant events will then be passed to n8n, where ChatGPT will process and analyze the events. The final analysis will be automatically sent to Slack.
 
@@ -132,31 +133,6 @@ http://192.168.182.128:8000
 
 The Splunk interface will be used for configuring indexes, receiving Windows logs, searching events, and creating security detections.
 
----
 
-## 7. Project Workflow
-
-After the basic infrastructure is ready, the project will follow this pipeline:
-
-```
-Windows 10
-    │
-    │ Security Logs
-    ▼
-Splunk SIEM
-    │
-    │ Relevant Events
-    ▼
-n8n
-    │
-    │ Event Analysis
-    ▼
-ChatGPT / LLM
-    │
-    │ Security Summary
-    ▼
-Slack
-```
-
-The next stage is to configure **Windows log collection and forwarding to Splunk**. Once the logs are successfully visible in Splunk, the n8n automation workflow will be configured.
+![[MDFile/1.png]]
 
