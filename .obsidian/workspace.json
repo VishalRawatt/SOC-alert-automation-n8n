@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Splunk Project.md",
+                "file": "Automated Security Monitoring Using Splunk and n8n.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Splunk Project"
+              "title": "Automated Security Monitoring Using Splunk and n8n"
             }
           }
         ]
@@ -189,10 +189,11 @@
   "active": "fd9039a5455bf8a7",
   "lastOpenFiles": [
     "Readme.md",
-    "Splunk Project.md",
-    "Screenshots/1.png",
-    "Screenshots/2.png",
+    "Automated Security Monitoring Using Splunk and n8n.md",
     "Screenshots/3.png",
+    "MDFile",
+    "Screenshots/2.png",
+    "Screenshots/1.png",
     "Screenshots/Pasted image 20260503141855.png",
     "Screenshots/Pasted image 20260503141836.png",
     "NPT/Assets/Pasted image 20260503140324.png",
@@ -232,7 +233,6 @@
     "THM/Mod 15 2. SQLMap.md",
     "THM/Assets",
     "THM",
-    "THM",
-    "Assets"
+    "THM"
   ]
 }

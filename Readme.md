@@ -1,4 +1,3 @@
-
 # 🔐 SOC Alert Automation using Splunk, n8n & AI
 
 ## 📌 Overview
