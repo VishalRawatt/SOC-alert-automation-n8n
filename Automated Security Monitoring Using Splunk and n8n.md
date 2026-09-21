@@ -5,7 +5,23 @@ The goal of this project is to build an automated security monitoring and incide
 
 The basic workflow is:
 
-**Windows Logs → Splunk → n8n → ChatGPT/LLM Analysis → Slack**
+Windows 10
+    │
+    │ Security Logs
+    ▼
+Splunk SIEM
+    │
+    │ Relevant Events
+    ▼
+n8n
+    │
+    │ Event Analysis
+    ▼
+ChatGPT / LLM (Ollama used here)
+    │
+    │ Security Summary
+    ▼
+	Slack
 
 Windows logs will be collected and sent to Splunk for centralized monitoring. Relevant events will then be passed to n8n, where ChatGPT will process and analyze the events. The final analysis will be automatically sent to Slack.
 
@@ -103,8 +119,6 @@ Splunk was then started manually for the initial configuration:
 ```
 
 During the first startup, the license agreement was accepted and the initial administrator credentials were configured.
-
-> **Note:** Credentials are documented here only as part of the development setup and should not be exposed in a public repository.
 
 ---
 
