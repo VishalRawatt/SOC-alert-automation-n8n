@@ -136,3 +136,158 @@ The Splunk interface will be used for configuring indexes, receiving Windows log
 
 ![](Screenshots/4.png)
 
+# Splunk Configuration
+
+We will first configure Splunk to receive logs from the Windows machine.
+
+### Configure Receiving Port
+
+Go to:
+
+**Settings → Forwarding and Receiving → Configure receiving → New Receiving Port**
+
+Enter:
+
+```
+9997
+```
+
+This is the default receiving port used by the Splunk Universal Forwarder.
+
+Click **Save**.
+
+![[Images/splunk-receiving.png]]
+
+---
+
+### Create a New Index
+
+Next, we will create a separate index for the Windows logs used in this project.
+
+Go to:
+
+**Settings → Indexes → New Index**
+
+Enter the index name:
+
+```
+splunkproject
+```
+
+Press **Enter** and save the new index.
+
+All Windows events collected for this project will be stored in this index.
+
+---
+
+### Install Splunk Add-on for Windows
+
+Go to:
+
+**Apps → Find More Apps**
+
+Search for:
+
+```
+Windows Event
+```
+
+Install the **Splunk Add-on for Microsoft Windows**.
+
+![[Images/splunk-windows-addon.png]]
+
+During the installation, Splunk may ask for the **Splunk account credentials**.
+
+
+
+---
+
+# Configuring Windows
+
+Now we will configure the Windows machine to send its event logs to Splunk.
+
+For this, we will use the **Splunk Universal Forwarder**.
+
+Download and install the Universal Forwarder on the Windows 10 Pro machine.
+
+### Universal Forwarder Credentials
+
+During the setup, configure the following credentials:
+
+```
+Username: splunk
+Password: splunk1234
+```
+
+
+---
+
+### Configure Deployment Server
+
+During the Universal Forwarder setup, we will be asked for the deployment server information.
+
+Enter the IP address of our Splunk server:
+
+```
+192.168.182.128
+```
+
+For the receiving port, enter:
+
+```
+9997
+```
+
+This allows the Windows Universal Forwarder to communicate with the Splunk server and forward the collected logs.
+
+---
+
+# Configure `inputs.conf`
+
+After installing the Universal Forwarder, navigate to:
+
+```
+C:\Program Files\SplunkUniversalForwarder\etc\system\local
+```
+
+We will place our `inputs.conf` file inside this directory.
+
+The configuration file defines which Windows event logs should be collected by the Universal Forwarder.
+
+The `inputs.conf` file used in this project can be found here:
+
+[inputs.conf](https://drive.google.com/file/d/1-qYp4oCrT1BqhG1oaprQfkFhgFIHiWEm/view)
+
+### Important Configuration
+
+The Windows event inputs should use the index:
+
+```
+index = splunkproject
+```
+
+This ensures that the Windows logs are stored inside the `splunkproject` index in Splunk.
+
+---
+
+## Log Flow
+
+The configuration at this stage can be represented as:
+
+```
+Windows 10 Pro
+      │
+      │ Windows Event Logs
+      ▼
+Splunk Universal Forwarder
+      │
+      │ TCP 9997
+      ▼
+Splunk Server
+192.168.182.128
+      │
+      ▼
+splunkproject Index
+```
+
+Next, we will verify that the Windows events are successfully reaching Splunk.
