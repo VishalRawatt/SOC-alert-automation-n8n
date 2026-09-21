@@ -1,52 +1,148 @@
 
-## Project Overview
+## 1. Project Goal
 
-The goal of this project is to build an automated security monitoring system using **Splunk as the SIEM** and **n8n as the automation platform**.
+The goal of this project is to build an automated security monitoring and incident-analysis system using **Splunk as the SIEM** and **n8n as the automation platform**.
 
-Windows security logs will be collected and sent to Splunk for centralized monitoring and analysis. Relevant events will then be forwarded to n8n, where an LLM will analyze the logs and generate a concise security summary. The final analysis will be delivered to a **Slack channel** for easy access and notification.
+The basic workflow is:
 
-### Project Flow
+**Windows Logs → Splunk → n8n → ChatGPT/LLM Analysis → Slack**
 
-**Windows Logs → Splunk → n8n → LLM Analysis → Slack**
+Windows logs will be collected and sent to Splunk for centralized monitoring. Relevant events will then be passed to n8n, where ChatGPT will process and analyze the events. The final analysis will be automatically sent to Slack.
 
-## Virtual Environment
+---
 
-The project is implemented using multiple virtual machines:
+## 2. Virtual Machine Configuration
 
-- **Windows 10 Pro** – Generates system and security logs
-    
-- **Kali Linux** – Used for controlled security testing
-    
-- **Ubuntu (n8n)** – Handles workflow automation
-    
-- **Ubuntu (Splunk)** – Acts as the central SIEM
-    
-- **Ubuntu (IRIS)** – Used for incident response and case management
-    
+The project environment consists of the following virtual machines:
 
-## Initial Setup
+|Machine|Configuration|Purpose|
+|---|---|---|
+|Windows 10 Pro|4 CPU / 60 GB|Log generation|
+|Kali Linux|4 CPU / 80 GB|Security testing|
+|Ubuntu – n8n|4 CPU / 50 GB|Workflow automation|
+|Ubuntu – Splunk|6 CPU / 100 GB|SIEM|
+|Ubuntu – IRIS|6 CPU / 50 GB|Incident response|
 
-The virtual machines were configured with the required resources and connected to the same network. SSH was enabled on the Ubuntu servers, Remote Desktop was enabled on Windows, and all Ubuntu systems were updated before deployment.
+The Splunk server is configured with the IP address:
 
-A snapshot of the Windows machine was also created to provide a recovery point before security testing.
+```
+192.168.182.128
+```
 
-## Splunk Setup
+---
 
-Splunk was installed on the Ubuntu server using the `.deb` package. After installation, Splunk was configured to run under the dedicated `splunk` user and to start automatically when the system boots.
+## 3. Initial System Configuration
 
-The Splunk service was started and the initial administrator account was created.
+The initial setup was performed on all virtual machines before starting the main deployment.
 
-The Splunk Web interface was then made available on port **8000**:
+### SSH Configuration
 
-`http://192.168.182.128:8000`
+SSH was configured on the Splunk and n8n Ubuntu servers to allow remote administration.
 
-## Planned Workflow
+### Windows Remote Desktop
 
-Once the infrastructure is ready, Windows logs will be forwarded to Splunk and relevant security events will be identified.
+Remote Desktop was enabled on the Windows 10 Pro machine for easier remote access.
 
-These events will be passed to n8n, which will automate the analysis process. An LLM will interpret the event, identify potentially suspicious activity, and provide a short explanation and recommended investigation steps.
+### Ubuntu Updates
 
-The result will then be sent automatically to Slack.
+All Ubuntu systems were updated and upgraded:
 
-The final system will demonstrate how **SIEM, workflow automation, and AI-assisted analysis** can work together to reduce manual log analysis and support a small SOC environment.
+```
+sudo apt update
+sudo apt upgrade -y
+```
+
+### Windows Snapshot
+
+A snapshot of the Windows 10 Pro machine was created before starting the security-testing phase. This provides a recovery point if any configuration or testing causes unwanted changes.
+
+---
+
+# 4. Splunk Installation
+
+Splunk was selected as the central SIEM for collecting, indexing, and analyzing security logs.
+
+The Splunk `.deb` package was downloaded from the official website and installed using:
+
+```
+sudo dpkg -i <splunk-package>.deb
+```
+
+After installation, the Splunk directory was accessed:
+
+```
+cd /opt/splunk/bin
+```
+
+Splunk was configured to run using the dedicated `splunk` user:
+
+```
+sudo -u splunk bash
+```
+
+The installation directory was then accessed again:
+
+```
+cd /opt/splunk/bin
+```
+
+---
+
+## 5. Configure Splunk to Start Automatically
+
+To make sure Splunk starts automatically whenever the Ubuntu server boots, boot-start was enabled:
+
+```
+sudo ./splunk enable boot-start -user splunk
+```
+
+Splunk was then started manually for the initial configuration:
+
+```
+./splunk start
+```
+
+During the first startup, the license agreement was accepted and the initial administrator credentials were configured.
+
+> **Note:** Credentials are documented here only as part of the development setup and should not be exposed in a public repository.
+
+---
+
+## 6. Accessing Splunk
+
+Once Splunk was running, the Web interface could be accessed from the host machine using port **8000**:
+
+```
+http://192.168.182.128:8000
+```
+
+The Splunk interface will be used for configuring indexes, receiving Windows logs, searching events, and creating security detections.
+
+---
+
+## 7. Project Workflow
+
+After the basic infrastructure is ready, the project will follow this pipeline:
+
+```
+Windows 10
+    │
+    │ Security Logs
+    ▼
+Splunk SIEM
+    │
+    │ Relevant Events
+    ▼
+n8n
+    │
+    │ Event Analysis
+    ▼
+ChatGPT / LLM
+    │
+    │ Security Summary
+    ▼
+Slack
+```
+
+The next stage is to configure **Windows log collection and forwarding to Splunk**. Once the logs are successfully visible in Splunk, the n8n automation workflow will be configured.
 
