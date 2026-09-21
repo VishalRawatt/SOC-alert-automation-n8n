@@ -134,5 +134,5 @@ http://192.168.182.128:8000
 The Splunk interface will be used for configuring indexes, receiving Windows logs, searching events, and creating security detections.
 
 
-![[MDFile/1.png]]
+![[../MDFile/1.png]]
 
