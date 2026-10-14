@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "95f03c9672cd3da8",
+        "id": "8b5249bde522a304",
         "type": "tabs",
         "children": [
           {
-            "id": "fd9039a5455bf8a7",
+            "id": "e04a9acfdd4f05e2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SOC Alert Automation with Splunk & n8n.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "SOC Alert Automation with Splunk & n8n"
+              "title": "New tab"
             }
           }
         ]
@@ -188,10 +184,11 @@
       "git-vault-sync:Git Vault Sync: Review changes & sync": false
     }
   },
-  "active": "fd9039a5455bf8a7",
+  "active": "a754bc50f6665131",
   "lastOpenFiles": [
-    "Screenshots/5.png",
+    "Untitled",
     "SOC Alert Automation with Splunk & n8n.md",
+    "Screenshots/5.png",
     "Screenshots/24.png",
     "Screenshots/23.png",
     "Screenshots/22.png",
@@ -201,7 +198,6 @@
     "Screenshots/18.png",
     "Screenshots/17.png",
     "Screenshots/16.png",
-    "Screenshots/15.png",
     "Readme.md",
     "MDFile",
     "NPT/Assets",
